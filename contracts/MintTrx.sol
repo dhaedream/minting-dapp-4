@@ -14,7 +14,7 @@ contract MintTrx is ERC721Enumerable, Ownable {
         string memory symbol
     ) ERC721(name, symbol) {}
 
-    function mint(uint256 numberoOfMints) public payable {
+    function mint(uint256 numberOfMints) public payable {
         uint256 supply = totalSupply();
         for (uint256 i; i < numberOfMints; i++) {
             _safeMint(msg.sender, supply + i);
