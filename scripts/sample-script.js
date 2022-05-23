@@ -3,7 +3,8 @@ const hre = require("hardhat");
 async function main() {
   // We get the contract to deploy
   const MintTrx = await hre.ethers.getContractFactory("MintTrx");
-  const mintTrx = await MintTrx.deploy("Hello, Hardhat!");
+  // must pass in constructor
+  const mintTrx = await MintTrx.deploy("Constructor Name", "CNS");
 
   await mintTrx.deployed();
 
