@@ -20,5 +20,5 @@ contract MintTrx is ERC721Enumerable, Ownable {
             _safeMint(msg.sender, supply + i);
             balances[msg.sender]++;
         }
-    } 
+    }
 }
