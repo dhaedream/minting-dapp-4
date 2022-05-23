@@ -9,6 +9,21 @@ function App() {
   //connect
   const [accounts, setAccounts] = useState([]);
 
+  async function connectAccounts() {
+    // check window for metamask
+    if (window.ethereum) {
+      const accounts = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      setAccounts(accounts);
+    }
+  }
+
+  // with useEffect, setAccounts will be called on page load + reload
+  useEffect(() => {
+    connectAccounts();
+  }, []);
+
   return <div className="App">Compiled + Deployed in hardhat </div>;
 }
 
